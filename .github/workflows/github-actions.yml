@@ -41,4 +41,4 @@ jobs:
         AUTH_TOKEN: ${{ secrets.auth_token }}
         WHATSAPP_NUMBER: ${{ secrets.WHATSAPP_NUMBER }}
       run: |
-        python app.py
+        python main.py
