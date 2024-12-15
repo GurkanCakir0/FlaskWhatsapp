@@ -13,9 +13,9 @@ logging.basicConfig(level=logging.DEBUG)
 UPLOAD_FOLDER = "./uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-account_sid = 'w'
-auth_token = 'w'
-WHATSAPP_NUMBER = 'whatsapp:+w'
+account_sid = os.getenv('ACCOUNT_SID', '')
+auth_token = os.getenv('AUTH_TOKEN', '')
+WHATSAPP_NUMBER = os.getenv('WHATSAPP_NUMBER', '')
 TWILIO_WHATSAPP_NUMBER = 'whatsapp:+17752889659'
 
 # if not TWILIO_ACCOUNT_SID or not TWILIO_AUTH_TOKEN or not WHATSAPP_NUMBER:
