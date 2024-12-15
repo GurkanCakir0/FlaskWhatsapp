@@ -53,13 +53,13 @@ def upload_file():
                 f.write(audio_data)
             app.logger.debug(f"Dosya kaydedildi: {file_path}")
 
-            file_url = f"http://{request.host}/uploads/uploaded_audio.wav"
+            audio_base64 = base64.b64encode(audio_data).decode('utf-8')
 
             message = client.messages.create(
                 from_=TWILIO_WHATSAPP_NUMBER,
                 body='Ses dosyası',
                 to=WHATSAPP_NUMBER,
-                media_url=['data:audio/wav;base64,' + audio_base64]
+                media_url=[f"data:audio/wav;base64,{audio_base64}"]
             )
             app.logger.debug(f"Dosya yükleme başlatıldı: {blob_name}")
 
