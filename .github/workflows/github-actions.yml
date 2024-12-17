@@ -10,17 +10,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # Repository'yi clone'la
     - name: Repository'yi Clone'la
       uses: actions/checkout@v3
 
-    # Python'u kur
     - name: Python 3.9'u Kur
       uses: actions/setup-python@v4
       with:
         python-version: 3.9
 
-    # Ortam değişkenlerini tanımla
+
     - name: Ortam Değişkenlerini Tanımla
       env:
         ACCOUNT_SID: ${{ secrets.account_sid }}
@@ -29,12 +27,10 @@ jobs:
       run: |
         echo "Ortam değişkenleri ayarlandı."
 
-    # Flask Gereksinimlerini Kur
     - name: Flask Gereksinimlerini Kur
       run: |
         pip install -r requirements.txt
 
-    # Flask Uygulamasını Çalıştır
     - name: Flask Uygulamasını Çalıştır
       env:
         ACCOUNT_SID: ${{ secrets.account_sid }}
